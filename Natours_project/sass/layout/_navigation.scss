@@ -38,10 +38,7 @@
         transition-delay: .3s;
     }
     &__list{
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
+        @include absCenter;
         list-style: none;
         text-align: center;
         width: 100%;
