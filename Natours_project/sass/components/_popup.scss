@@ -6,6 +6,10 @@
     top: 0;
     left: 0;
     z-index: 100;
+    opacity: 0;
+    visibility: hidden;
+    transition: all .3s;
+
     &__content {
         @include absCenter;
         background-color: white;
@@ -14,6 +18,9 @@
         border-radius: 3px;
         display: table;
         overflow: hidden;
+        opacity: 0;
+        transition: all .4s .2s;
+        transform: translate(-50%, -50%) scale(.5);
     }
     &__left {
         width: calc(100% / 3);
@@ -40,6 +47,34 @@
     &__img {
         display: block;
         width: 100%;
+    }
+    
+    &:target {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    &:target &__content {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
+    }
+
+    &__close {
+        &:link,
+        &:visited {
+            color: inherit;
+            position: absolute;
+            line-height: 1;
+            top: 2.5rem;
+            right: 3rem;
+            font-size: 3.2rem;
+            text-decoration: none;
+            display: inline-block;
+            transition: all .2s;
+        }
+        &:hover {
+            color: $medium-blue;
+        }
     }
 }
 
